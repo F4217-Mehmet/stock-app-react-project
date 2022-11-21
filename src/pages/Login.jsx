@@ -8,10 +8,9 @@ import image from "../assets/result.svg";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
-import {Formik, Form} from "formik";
+import { Formik, Form } from "formik";
 import { TextField } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
-
 
 const loginSchema = {};
 const Login = () => {
@@ -97,7 +96,9 @@ const Login = () => {
                     error={touched.password && Boolean(errors.password)}
                     helperText={touched.password && errors.password}
                   />
-                  <LoadingButton loading={loading}>Submit</LoadingButton>
+                  <LoadingButton loading={loading} loadingPosition="center" variant="contained">
+                    Submit
+                  </LoadingButton>
                 </Box>
               </Form>
             )}
