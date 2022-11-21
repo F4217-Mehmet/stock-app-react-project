@@ -10,11 +10,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {Formik, Form} from "formik";
 import { TextField } from "@mui/material";
+import LoadingButton from "@mui/lab/LoadingButton";
+
 
 const loginSchema = {};
 const Login = () => {
   const navigate = useNavigate();
-  const { currentUser, error } = useSelector((state) => state?.auth);
+  const { currentUser, error, loading } = useSelector((state) => state?.auth);
 
   return (
     <Container maxWidth="lg">
@@ -61,9 +63,16 @@ const Login = () => {
               actions.setSubmitting(false);
             }}
           >
-            {({ values, isSubmitting, handleChange, handleBlur }) => (
+            {({
+              values,
+              isSubmitting,
+              handleChange,
+              handleBlur,
+              touched,
+              errors,
+            }) => (
               <Form>
-                <Box sx={{display: "flex", flexDirection:"column", gap:2}}>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
                     label="Email"
                     name="email"
@@ -72,7 +81,23 @@ const Login = () => {
                     variant="outlined"
                     values={values.email}
                     onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={touched.email && Boolean(errors.email)}
+                    helperText={touched.email && errors.email}
                   />
+                  <TextField
+                    label="Password"
+                    name="password"
+                    id="password"
+                    type="password"
+                    variant="outlined"
+                    values={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={touched.password && Boolean(errors.password)}
+                    helperText={touched.password && errors.password}
+                  />
+                  <LoadingButton loading={loading}>Submit</LoadingButton>
                 </Box>
               </Form>
             )}
