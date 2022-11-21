@@ -15,6 +15,8 @@ npm install veya yarn
 - `@mui/material-ui`
 - `@emotion/react`
 - `@emotion/styled`
+- `Formik`
+- `Yup`
 
 ## `Kullanilacak API`:
 
