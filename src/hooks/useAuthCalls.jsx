@@ -7,12 +7,16 @@ import {
   registerSuccess,
   fetchFail,
 } from "../features/authSlice";
+
 import { useNavigate } from "react-router-dom";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
+
 const useAuthCalls = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const BASE_URL = "https://10001.fullstack.clarusway.com/";
+
   const login = async (userInfo) => {
     dispatch(fetchStart());
     try {
@@ -20,6 +24,7 @@ const useAuthCalls = () => {
         `${BASE_URL}account/auth/login/`,
         userInfo
       );
+
       dispatch(loginSuccess(data));
       toastSuccessNotify("Login performed");
       navigate("/stock");
@@ -28,6 +33,7 @@ const useAuthCalls = () => {
       toastErrorNotify("Login can not be performed");
     }
   };
+
   const logout = async () => {
     dispatch(fetchStart());
     try {
@@ -40,6 +46,7 @@ const useAuthCalls = () => {
       toastErrorNotify("Logout can not be performed");
     }
   };
+
   const register = async (userInfo) => {
     dispatch(fetchStart());
     try {
@@ -55,10 +62,12 @@ const useAuthCalls = () => {
       toastErrorNotify("Register can not be performed");
     }
   };
+
   return {
     login,
     logout,
     register,
   };
 };
+
 export default useAuthCalls;
