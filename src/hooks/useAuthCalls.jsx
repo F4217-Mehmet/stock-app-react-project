@@ -11,6 +11,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 
+
 const useAuthCalls = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
