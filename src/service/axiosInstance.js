@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://14217.fullstack.clarusway.com/";
+const BASE_URL = "https://10001.fullstack.clarusway.com/";
 
 //* Token'siz api istekleri icin bir instance olustur.
 export const axiosPublic = axios.create({
@@ -17,7 +17,7 @@ export const axiosWithToken = axios.create({
   headers: { Authorization: `Token ${token}` },
 });
 
-//* Instance, token'nın ilk degerini okuyarak istekte bulunur.
+//* Instance, token'nın ilk degirini okuyarak istekte bulunur.
 //* Dolayisiyla bazen localSotrage'Dan token alinmadan ilk degeri (null) ile istek yapilmis olabilir.
 //* Bunun cozumu icin axios interceptors kullanilabilir.
 //* interceptor belirtilen her axios instance calismadan once calisan bir metodtur.
