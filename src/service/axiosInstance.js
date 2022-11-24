@@ -17,7 +17,7 @@ export const axiosWithToken = axios.create({
   headers: { Authorization: `Token ${token}` },
 });
 
-//* Instance, token'nın ilk degirini okuyarak istekte bulunur.
+//* Instance, token'nın ilk degerini okuyarak istekte bulunur.
 //* Dolayisiyla bazen localSotrage'Dan token alinmadan ilk degeri (null) ile istek yapilmis olabilir.
 //* Bunun cozumu icin axios interceptors kullanilabilir.
 //* interceptor belirtilen her axios instance calismadan once calisan bir metodtur.
