@@ -15,7 +15,7 @@ export default function FirmModal({ open, setOpen, info, setInfo }) {
       putFirm(info);
     } else {
       postFirm(info);
-    }
+    } 
     setOpen(false);
     setInfo({});
   };
